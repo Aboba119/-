@@ -15,8 +15,16 @@ while True:
     line = f.readline()
     if not line:
         break
-    file = line.split()
-    print(file)
+    file_beta = list(line)
+    file = []
+    n = ''
+    for i in file_beta:
+        if i == ' ':
+            if n != ' ':
+                file.append(str(n))
+            n = ''
+            continue
+        n += str(i)
     for i in range(len(file)):
         if int(file[i]) % 2 == 0:
             nums = {i for i in str(file[i])}
